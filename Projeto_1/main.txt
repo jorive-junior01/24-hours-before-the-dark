@@ -24,5 +24,8 @@ print(Circulo.calcula_comprimento(3))
 print(Circulo.verifica_ponto_circulo(2, 3, 5, 6, 3))
 # Vai mostrar 'sim' ou 'não' se o ponto (2,3) está contido no círculo de centro (5,6) e raio 3
 
-print(Retangulo.retangle(3,4))
-# Vai mostrar a área e a diagonal do retângulo de largura 3 e comprimento 4
+print(Retangulo.retangle_area(3,4))
+# Vai mostrar a área do retângulo de largura 3 e comprimento 4
+
+print(Retangulo.retangle_diagonal(3,4))
+# Vai mostrar o tamanho da diagonal do retângulo de largura 3 e comprimento 4
