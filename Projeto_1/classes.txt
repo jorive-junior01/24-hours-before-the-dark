@@ -1,21 +1,21 @@
 class Ponto:
 	# variáveis:
 
-	 CoordenadaX
-	 CoordenadaY
+	 coordenadaX
+	 coordenadaY
 
 	# funções:
 
-	 coordenadas(CoordenadaX,CoordenadaY):
-		Obter CoordenadaX e CoordenadaY
+	 coordenadas(coordenadaX,coordenadaY):
+		Obter coordenadaX e coordenadaY
 		Plotar o ponto no gráfico cartesiano
 
 class Reta:
 	# variáveis:
 
 	 equacao_reta
-	 CoordenadaX
-	 CoordenadaY
+	 coordenadaX
+	 coordenadaY
 
 	# funções:
 
@@ -24,9 +24,9 @@ class Reta:
 		Plotar o gráfico da reta utilizando o ponto em que x = 0 e varia até o ponto em que x = -c/a # quando y = 0 e 
 		y assume a função: y = (c - ax)/b
 
-	 distancia_ponto_reta(equacao_reta, CoordenadaX, CoordenadaY):
+	 distancia_ponto_reta(equacao_reta, coordenadaX, coordenadaY):
 		Calcular a distância entre o ponto da classe ponto e a reta usando a fórmula: 
-			sqrt((a*CoordenadaX + b*CoordenadaY + c)^2)/sqrt(a^2 + b^2) 
+			sqrt((a*coordenadaX + b*coordenadaY + c)^2)/sqrt(a^2 + b^2) 
 			# Considerando que a equação da reta siga o padrão: ax + by + c = 0
 		Retornar ao usuário a distância do ponto à reta
 
@@ -41,8 +41,8 @@ class Circulo:
 	 centroY
 	 raio
 	 equacao_circulo
-	 CoordenadaX
-	 CoordenadaY
+	 coordenadaX
+	 coordenadaY
 
 	# funções:
 	
@@ -58,9 +58,9 @@ class Circulo:
 	 calcula_comprimento(raio):
 		Calcular o comprimento da circunferência usando a fórmula: 2 * pi * raio e retornar o valor ao usuário
 
-	verifica_ponto_circulo(CoordenadaX, CoordenadaY, centroX, centroY,raio):
+	verifica_ponto_circulo(coordenadaX, coordenadaY, centroX, centroY,raio):
 		Calcular a distância entre o ponto e o centro do círculo utilizando a fórmula: 
-			sqrt((CoordenadaX - centroX)^2 + (CoordenadaY - centroY)^2)
+			sqrt((coordenadaX - centroX)^2 + (coordenadaY - centroY)^2)
 		Se a distância calculada for menor que o raio, a função retorna 'sim', caso contrário, 'não'
 
 class Retangulo:
@@ -71,9 +71,10 @@ class Retangulo:
 
 	# funções:
 	
-	 retangle(largura, comprimento):
+	 retangle_area(largura, comprimento):
 		Obter a largura e o comprimento do retângulo
-		Calcular a área seguindo a fórmula: largura*comprimento e a diagonal seguindo a fórmula: 
-			diagonal = sqrt(largura^2 + comprimento^2)
-		Retornar esses 2 dados ao usuário
-		
+		Calcular a área seguindo a fórmula: largura*comprimento e retornar a área ao usuário
+
+	 retangle_diagonal(largura, comprimento):
+		Obter a largura e o comprimento do retângulo
+		Calcular a diagonal seguindo a fórmula: sqrt(largura^2 + comprimento^2) e retornar a diagonal ao usuário
