@@ -1,0 +1,28 @@
+import classes
+
+Ponto.coordenadas(2,3)
+# Vai mostrar o ponto (2,3) no gráfico cartesiano
+
+Reta.eq_reta(2x + 3y - 6)
+# Vai mostrar o gráfico dessa reta que está entre parêntesis
+
+print(Reta.distancia_ponto_reta(2x + 3y - 6, 4, 5))
+# Vai retornar a distância entre o ponto (4,5) da reta 2x + 3y - 6
+
+print(Reta.verifica_ponto_reta(2x + 3y - 6, 10, 11))
+# vai retornar 'sim' ou 'não' se o ponto (10,11) está contido na reta 2x + 3y - 6
+
+Circulo.eq_circulo(1, 2, 3)
+# Vai mostrar a equação do círculo e o círculo no gráfico cartesiano
+
+print(Circulo.calcula_area(3))
+# Vai mostrar a área de um círculo de raio 3
+
+print(Circulo.calcula_comprimento(3))
+# Vai mostrar o comprimento da circunferência de raio 3
+
+print(Circulo.verifica_ponto_circulo(2, 3, 5, 6, 3))
+# Vai mostrar 'sim' ou 'não' se o ponto (2,3) está contido no círculo de centro (5,6) e raio 3
+
+print(Retangulo.retangle(3,4))
+# Vai mostrar a área e a diagonal do retângulo de largura 3 e comprimento 4

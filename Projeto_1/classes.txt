@@ -1,0 +1,79 @@
+class Ponto:
+	# variáveis:
+
+	 CoordenadaX
+	 CoordenadaY
+
+	# funções:
+
+	 coordenadas(CoordenadaX,CoordenadaY):
+		Obter CoordenadaX e CoordenadaY
+		Plotar o ponto no gráfico cartesiano
+
+class Reta:
+	# variáveis:
+
+	 equacao_reta
+	 CoordenadaX
+	 CoordenadaY
+
+	# funções:
+
+	 eq_reta(equacao_reta):
+		Obter a equação da reta e armazenar na variável equacao_reta
+		Plotar o gráfico da reta utilizando o ponto em que x = 0 e varia até o ponto em que x = -c/a # quando y = 0 e 
+		y assume a função: y = (c - ax)/b
+
+	 distancia_ponto_reta(equacao_reta, CoordenadaX, CoordenadaY):
+		Calcular a distância entre o ponto da classe ponto e a reta usando a fórmula: 
+			sqrt((a*CoordenadaX + b*CoordenadaY + c)^2)/sqrt(a^2 + b^2) 
+			# Considerando que a equação da reta siga o padrão: ax + by + c = 0
+		Retornar ao usuário a distância do ponto à reta
+
+	 verifica_ponto_reta(equacao_reta, CoordenadaX, CoordenadaY):
+		Calcular o valor de y quando x assumir o valor de CoordenadaX
+		Verificar se o valor calculado de y é igual ao da CoordenadaY, se for, retorna 'sim', se não, retorna 'não'
+
+class Circulo:
+	# variáveis:
+	 
+	 centroX
+	 centroY
+	 raio
+	 equacao_circulo
+	 CoordenadaX
+	 CoordenadaY
+
+	# funções:
+	
+	 eq_circulo(centroX, centroY,raio):
+		Obter as coordenadas do centro e armazenar nas variáveis centroX e centroY
+		Obter o valor do raio do círculo
+		Montar a equação do círculo usando a fórmula: (x - centroX)^2 + (y - centroY)^2 = R^2 retorna isso ao usuário
+		Plotar o gráfico do círculo no plano cartesiano
+
+	 calcula_area(raio):
+		Calcular a área do círculo usando a fórmula: pi * raio^2 e retornar ao usuário
+	
+	 calcula_comprimento(raio):
+		Calcular o comprimento da circunferência usando a fórmula: 2 * pi * raio e retornar o valor ao usuário
+
+	verifica_ponto_circulo(CoordenadaX, CoordenadaY, centroX, centroY,raio):
+		Calcular a distância entre o ponto e o centro do círculo utilizando a fórmula: 
+			sqrt((CoordenadaX - centroX)^2 + (CoordenadaY - centroY)^2)
+		Se a distância calculada for menor que o raio, a função retorna 'sim', caso contrário, 'não'
+
+class Retangulo:
+	# variáveis:
+
+	 largura
+	 comprimento
+
+	# funções:
+	
+	 retangle(largura, comprimento):
+		Obter a largura e o comprimento do retângulo
+		Calcular a área seguindo a fórmula: largura*comprimento e a diagonal seguindo a fórmula: 
+			diagonal = sqrt(largura^2 + comprimento^2)
+		Retornar esses 2 dados ao usuário
+		
