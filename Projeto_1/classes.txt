@@ -8,6 +8,7 @@ class Ponto:
 
 	 coordenadas(coordenadaX,coordenadaY):
 		Obter coordenadaX e coordenadaY
+
 	
 	 mostrar_coordenadas(coordenadaX,coordenadaY):
 		Mostrar as coordenadas do ponto
@@ -77,4 +78,5 @@ class Retangulo:
 
 	 retangle_diagonal(largura, comprimento):
 		Obter a largura e o comprimento do retângulo
+
 		Calcular a diagonal seguindo a fórmula: sqrt(largura^2 + comprimento^2) e retornar a diagonal ao usuário
