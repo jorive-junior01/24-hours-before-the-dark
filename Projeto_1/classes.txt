@@ -8,7 +8,9 @@ class Ponto:
 
 	 coordenadas(coordenadaX,coordenadaY):
 		Obter coordenadaX e coordenadaY
-		Plotar o ponto no gráfico cartesiano
+	
+	 mostrar_coordenadas(coordenadaX,coordenadaY):
+		Mostrar as coordenadas do ponto
 
 class Reta:
 	# variáveis:
@@ -19,10 +21,9 @@ class Reta:
 
 	# funções:
 
-	 eq_reta(equacao_reta):
-		Obter a equação da reta e armazenar na variável equacao_reta
-		Plotar o gráfico da reta utilizando o ponto em que x = 0 e varia até o ponto em que x = -c/a # quando y = 0 e 
-		y assume a função: y = (c - ax)/b
+	 eq_reta(x1,y1,x2,y2):
+		Obter 2 pontos e gerar a equação da reta, armazenando na variável equacao_reta e mostrando a equação da reta ao
+		usuário
 
 	 distancia_ponto_reta(equacao_reta, coordenadaX, coordenadaY):
 		Calcular a distância entre o ponto da classe ponto e a reta usando a fórmula: 
@@ -50,7 +51,6 @@ class Circulo:
 		Obter as coordenadas do centro e armazenar nas variáveis centroX e centroY
 		Obter o valor do raio do círculo
 		Montar a equação do círculo usando a fórmula: (x - centroX)^2 + (y - centroY)^2 = R^2 retorna isso ao usuário
-		Plotar o gráfico do círculo no plano cartesiano
 
 	 calcula_area(raio):
 		Calcular a área do círculo usando a fórmula: pi * raio^2 e retornar ao usuário
