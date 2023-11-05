@@ -1,0 +1,94 @@
+<mxfile host="app.diagrams.net" modified="2023-11-05T00:35:53.046Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0" etag="9wzc83fuOJ-FO-mCbbSC" version="21.7.4" type="github">
+  <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
+    <mxGraphModel dx="987" dy="525" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hf-0GMIHbrAOnRInhGed-2" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="40" width="240" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hf-0GMIHbrAOnRInhGed-1" target="hf-0GMIHbrAOnRInhGed-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-1" value="Usuário" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-3" value="Tela Inicial" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="50" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-4" value="Login" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="135" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-5" value="Jogar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="85" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-6" value="Scoreboard" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="185" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-23" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="30" width="240" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hf-0GMIHbrAOnRInhGed-25" target="hf-0GMIHbrAOnRInhGed-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hf-0GMIHbrAOnRInhGed-25" target="hf-0GMIHbrAOnRInhGed-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-25" value="Usuário" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="450" y="120" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-26" value="Login" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="50" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-31" value="nickname" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="90" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-32" value="novo_nickname" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="160" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-37" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="320" width="240" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hf-0GMIHbrAOnRInhGed-40" target="hf-0GMIHbrAOnRInhGed-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-40" value="Jogador 1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="410" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-41" value="Início do Jogo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="340" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-42" value="Escolhe o símbolo" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="405" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-44" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hf-0GMIHbrAOnRInhGed-4" target="hf-0GMIHbrAOnRInhGed-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="110" as="sourcePoint" />
+            <mxPoint x="250" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-46" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hf-0GMIHbrAOnRInhGed-4" target="hf-0GMIHbrAOnRInhGed-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="190" y="222.5" as="sourcePoint" />
+            <mxPoint x="250" y="197.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-49" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="320" width="240" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="hf-0GMIHbrAOnRInhGed-51" target="hf-0GMIHbrAOnRInhGed-53" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-51" value="Usuário" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="450" y="410" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-52" value="Jogo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="340" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hf-0GMIHbrAOnRInhGed-53" value="Escolhe uma posição para marcar o símbolo durante seu turno" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="575" y="382.5" width="130" height="95" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
