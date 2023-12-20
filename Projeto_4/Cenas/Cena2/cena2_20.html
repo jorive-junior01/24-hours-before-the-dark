@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>24 Hours Before The Dark</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      position: relative; /* Adiciona posicionamento relativo para elementos filhos usarem posicionamento absoluto */
+    }
+
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .botao-continuar {
+      position: absolute;
+      bottom: 5px; /* Distância de 5px do fundo */
+      right: 5px; /* Distância de 5px da direita */
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+      border: 2px solid black;
+      cursor: pointer;
+    }
+
+    .botao-continuar:hover {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <video id="meuVideo" autoplay>
+    <source src="../../Videos/game.mp4" type="video/mp4">
+    <!-- Adicione outros formatos de vídeo se necessário -->
+  </video>
+
+  <a href="../Cena3/cena3_1.html" class="botao-continuar">Pular</a>
+
+  <script>
+    const meuVideo = document.getElementById('meuVideo');
+    meuVideo.addEventListener('ended', function() {
+      window.location.href = '../Cena3/cena3_1.html';
+    });
+  </script>
+</body>
+</html>

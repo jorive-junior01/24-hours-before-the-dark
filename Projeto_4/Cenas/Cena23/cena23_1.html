@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>24 Hours Before The Dark</title>
+  <script src="../../Scripts/salvamentos.js"></script>
+  <script src="../../Scripts/tempo_relogio.js"></script>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 50px;
+    }
+
+    #texto-digitando {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="texto-digitando"></div>
+  <audio id="audio-digitando" src="../Musicas/fim_tragico.mp3"></audio>
+
+  <script>
+    const texto = "Eu consegui fugir, me salvei...agora vou poder observar as estrelas, até o fim da minha visão...";
+    const tempoExibicaoTexto = 1500;
+    const tempoRedirecionamento = 5000;
+
+    let index = 0;
+    const textoDigitando = document.getElementById('texto-digitando');
+    const audioDigitando = document.getElementById('audio-digitando');
+
+    function exibirTexto() {
+      textoDigitando.textContent += texto[index];
+      audioDigitando.play();
+      index++;
+      if (index < texto.length) {
+        setTimeout(exibirTexto, 50);
+      } else {
+        setTimeout(() => {
+          window.location.href = 'cena23_2.html';
+        }, tempoRedirecionamento);
+      }
+    }
+
+    exibirTexto();
+  </script>
+</body>
+</html>

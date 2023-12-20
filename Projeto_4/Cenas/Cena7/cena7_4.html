@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>24 Hours Before The Dark</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const usuario = localStorage.getItem('username');
+
+      if (usuario) {
+        localStorage.removeItem(`${usuario}_pagina_atual`);
+      }
+    });
+  </script>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    /* Estilos para o texto "Você morreu" */
+    #texto-digitando {
+      font-size: 80px;
+      color: red;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    /* Estilos para os botões */
+    .botoes-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .botao {
+      padding: 15px 30px;
+      border-radius: 10px;
+      background-color: rgb(0, 0, 0);
+      color: orange;
+      text-decoration: none;
+      border: 2px solid rgb(0, 0, 0);
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 24px;
+      text-align: center;
+      width: 250px;
+    }
+    .botao:hover {
+      background-color: rgb(255, 0, 0);
+      color: orange;
+    }
+  </style>
+</head>
+<body>
+  <audio id="audio-corte" src="../../Musicas/corte.mp3"></audio>
+  <div id="texto-digitando"></div>
+
+  <div class="botoes-container" id="botoesContainer" style="display: none;">
+    <a href="../../menu_principal.html" class="botao">Voltar ao Menu Principal</a>
+  </div>
+
+  <script>
+    const texto = "Você morreu";
+    const tempoExibicaoTexto = 1500;
+    const tempoRedirecionamento = 3500;
+
+    let index = 0;
+    const textoDigitando = document.getElementById('texto-digitando');
+    const audioCorte = document.getElementById('audio-corte');
+    const botaoTentarNovamente = document.getElementById('tentarNovamente');
+
+    audioCorte.play();
+    audioCorte.onended = function() {
+      exibirTexto();
+    };
+
+    function exibirTexto() {
+      textoDigitando.textContent += texto[index];
+      index++;
+      if (index < texto.length) {
+        setTimeout(exibirTexto, 50);
+      } else {
+        document.getElementById('botoesContainer').style.display = 'flex';
+        botaoTentarNovamente.addEventListener('click', tentarNovamente);
+      }
+    }
+  </script>
+</body>
+</html>

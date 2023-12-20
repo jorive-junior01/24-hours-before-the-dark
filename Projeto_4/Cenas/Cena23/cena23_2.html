@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>24 Hours Before The Dark</title>
+  <script src="../../Scripts/salvamentos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const usuario = localStorage.getItem('username');
+
+      if (usuario) {
+        localStorage.removeItem(`${usuario}_pagina_atual`);
+        localStorage.setItem(`${usuario}_trofeu_fuga`,'desbloqueado');
+      }
+    });
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-image: url('../../Imagens/ceu.jpeg');
+      background-size: 1024px 100%;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .conteudo {
+      position: fixed;
+      bottom: 0px;
+      left: 1024px;
+      right: 0px;
+      top: 0px;
+      padding: 20px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgb(255, 255, 255);
+      text-align: center;
+      z-index: 1;
+    }
+    
+    .relogio {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.8); /* Cor de fundo preta com 80% de transparência */
+      color: rgb(252, 0, 0);
+      font-family: 'Arial', sans-serif;
+      font-size: 24px;
+      border-radius:5px;
+    }
+
+    #imagem-movivel {
+      position: fixed;
+      pointer-events: none;
+      transition: transform 0.1s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="relogio">21:59</div>
+  <div class="conteudo">
+    <!-- Seu conteúdo aqui -->
+    <h1 id="nome-usuario"></h1>
+    <p id="texto-digitando"></p>
+  </div>
+
+  <audio id="audio-alarme" src="../../Musicas/deserto.mp3"></audio>
+  <audio id="audio-digitacao" src="../../Musicas/digitacao.mp3"></audio>
+
+  <script>
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        window.location.href = '../../pause.html';
+      }
+    });
+
+    const texto = "Que céu lindo...adeus visão...";
+    const tempoExibicaoLetra = 75;
+    const tempoRedirecionamento = 10000;
+
+    let index = 0;
+    const textoDigitando = document.getElementById('texto-digitando');
+    const nomeUsuario = document.getElementById('nome-usuario');
+    const audioDigitacao = document.getElementById('audio-digitacao');
+    const audioAlarme = document.getElementById('audio-alarme');
+    audioAlarme.play();
+    function exibirTexto() {
+      textoDigitando.textContent += texto[index];
+      audioDigitacao.play();
+      index++;
+      if (index < texto.length) {
+        setTimeout(exibirTexto, tempoExibicaoLetra);
+      } else {
+        // Armazena o tempo atual de reprodução do áudio do alarme
+        localStorage.setItem('alarmeTempo', audioAlarme.currentTime);
+
+        audioDigitacao.pause();
+        setTimeout(() => {
+          window.location.href = '../../menu_principal.html';
+          audioAlarme.pause();
+        }, tempoRedirecionamento);
+      }
+    }
+
+    if (localStorage.getItem('username')) {
+      nomeUsuario.textContent = localStorage.getItem('username');
+    }
+
+    exibirTexto();
+  </script>
+<script>
+  function atualizarImagemComHora() {
+    const horaSalva = parseInt(localStorage.getItem(`${localStorage.getItem('username')}_horaAtual`)) || 8;
+    const numeroImagem = horaSalva - 7;
+    const nomeImagem = `visao${numeroImagem}.png`;
+
+    const imagemMovivel = document.createElement('img');
+    imagemMovivel.src = `../../Imagens/visao12.png`; // Corrigindo a interpolação da string
+    imagemMovivel.id = 'imagem-movivel';
+    document.body.appendChild(imagemMovivel);
+
+    document.addEventListener('mousemove', function(e) {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const imagem = document.getElementById('imagem-movivel');
+      const imagemCenterX = imagem.offsetWidth / 2;
+      const imagemCenterY = imagem.offsetHeight / 2;
+
+      imagem.style.transform = `translate(${mouseX - imagemCenterX}px, ${mouseY - imagemCenterY}px)`;
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', atualizarImagemComHora);
+
+</script>
+</body>
+</html>

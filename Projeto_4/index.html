@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      font-family: Arial, sans-serif;
+    }
+
+    #video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    #background-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Faz o vídeo preencher todo o espaço mantendo a proporção */
+    }
+
+    #menu-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20vh;
+      background-color: rgba(255, 255, 255, 0.61);
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 88px;
+      color: white;
+      margin: 20px 0;
+      font-family: 'Medieval';
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(252, 95, 5);
+      font-weight: bold;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: 2px solid black;
+      border-radius: 5px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #030507;
+      color: rgb(252, 95, 5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Vídeo de fundo -->
+  <div id="video-container">
+    <video id="background-video" autoplay loop>
+      <source src="/Videos/Intro.mp4" type="video/mp4">
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+  </div>
+
+  <h1>24 Hours Before The Dark</h1>
+  <div id="menu-container">
+    <ul id="menu-options">
+      <li><a href="login.html">Login</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+    </ul>
+  </div>
+
+  <script>
+    var video = document.getElementById("background-video");
+
+    // Verifica se há um tempo de reprodução armazenado no localStorage
+    if (localStorage.getItem("videoTime")) {
+      video.currentTime = localStorage.getItem("videoTime");
+    }
+
+    // Salva o tempo atual de reprodução do vídeo no localStorage
+    function saveVideoTime() {
+      localStorage.setItem("videoTime", video.currentTime);
+    }
+
+    // Evento para salvar o tempo de reprodução ao mudar de página
+    window.addEventListener("beforeunload", saveVideoTime);
+  </script>
+</body>
+</html>

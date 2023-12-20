@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>24 Hours Before The Dark</title>
+  <script src="../../Scripts/salvamentos.js"></script>
+  <script src="../../Scripts/tempo_relogio.js"></script>
+  <script>
+    resetarTempo();
+    document.addEventListener('DOMContentLoaded', function() {
+      const usuario = localStorage.getItem('username');
+
+      if (usuario) {
+        localStorage.setItem(`${usuario}_caminho_trevas`, 'bloqueado');
+        localStorage.setItem(`${usuario}_caminho_forca`, 'bloqueado');
+        localStorage.setItem(`${usuario}_conversa_mulher`,'desbloqueado');
+        localStorage.setItem(`${usuario}_caminho_morte`, 'bloqueado');
+        localStorage.setItem(`${usuario}_conversa_bar`, 'bloqueado');
+      }
+    });
+  </script>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="texto-digitando"></div>
+  <audio id="audio-digitando" src="../Musicas/digitacao.mp3"></audio>
+
+  <script>
+    const texto = "' Você perderá completamente sua visão em 24 horas... '";
+    const tempoExibicaoTexto = 1500;
+    const tempoRedirecionamento = 5000;
+
+    let index = 0;
+    const textoDigitando = document.getElementById('texto-digitando');
+    const audioDigitando = document.getElementById('audio-digitando');
+
+    function exibirTexto() {
+      textoDigitando.textContent += texto[index];
+      audioDigitando.play();
+      index++;
+      if (index < texto.length) {
+        setTimeout(exibirTexto, 50);
+      } else {
+        audioDigitando.pause();
+        setTimeout(() => {
+          window.location.href = 'Cena1/cena1_1.html';
+        }, tempoRedirecionamento);
+      }
+    }
+
+    exibirTexto();
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>24 Hours Before The Dark</title>
+  <script src="../../Scripts/salvamentos.js"></script>
+  <script src="../../Scripts/tempo_relogio.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const usuario = localStorage.getItem('username');
+
+      if (usuario) {
+        localStorage.setItem(`${usuario}_caminho_trevas`, 'desbloqueado');
+      }
+    });
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-image: url('../../Imagens/corredor_hospital.jpg');
+      background-size: 1024px 100%; /* Tamanho original na lateral e esticado na altura */
+      background-repeat: no-repeat;
+      background-position: left bottom; /* Posiciona a imagem na parte esquerda inferior */
+      overflow: hidden;
+    }
+
+    .conteudo {
+      padding: 20px;
+      background-color: rgba(58, 238, 3, 1);
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      max-width: 80%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+
+    /* Estilos dos botões */
+    .botao {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 2px solid black;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .botao:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .relogio {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: rgb(252, 0, 0);
+      font-family: 'Arial', sans-serif;
+      font-size: 24px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="relogio">22:15</div>
+  <div class="conteudo">
+    <h1>DESBLOQUEADO</h1>
+    <p>CAMINHO DAS TREVAS</p>
+
+    <!-- Botão "Continuar" -->
+    <a href="cena2_12.html" class="botao" id="desb">Continuar</a>
+  </div>
+  
+  <script>
+    passouMinutos(5);
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        window.location.href = '../../pause.html';
+      }
+    });
+  </script>
+</body>
+</html>

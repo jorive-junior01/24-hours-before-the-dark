@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    /* Estilos semelhantes aos do index.html */
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      font-family: Arial, sans-serif;
+    }
+
+    #video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    #background-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Faz o vídeo preencher todo o espaço mantendo a proporção */
+    }
+
+    /* Estilos específicos para o formulário de login */
+    #login-form {
+      background-color: rgba(255, 255, 255, 0.61);
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 88px;
+      color: white;
+      font-family: 'Medieval';
+      margin-top: 30px;
+      z-index: 1; /* Garante que o título fique acima do vídeo */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 300px;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      display: none;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    input[type="submit"] {
+      background-color: #fff;
+      color: rgb(252, 95, 5);
+      font-weight: bold;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: 2px solid black;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #030507;
+      color: rgb(252, 95, 5);
+    }
+
+    a {
+      background-color: #fff;
+      color: rgb(252, 95, 5);
+      font-weight: bold;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: 2px solid black;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: #030507;
+      color: rgb(252, 95, 5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Vídeo de fundo -->
+  <div id="video-container">
+    <video id="background-video" autoplay loop>
+      <source src="/Videos/Intro.mp4" type="video/mp4">
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+  </div>
+
+  <!-- Título -->
+  <h1>24 Hours Before The Dark</h1>
+
+  <!-- Formulário de login -->
+  <div id="login-form">
+    <h2>Login</h2>
+    <form id="form" onsubmit="validarLogin(event)">
+      <input type="text" id="username" placeholder="Nome de usuário" required><br>
+      <span class="error-message" id="error-message">Usuário e/ou senha incorretos!</span>
+      <input type="password" id="password" placeholder="Senha" required><br>
+      <input type="submit" value="Logar">
+    </form>
+    <br>
+    <a href="index.html">Voltar para o menu principal</a>
+  </div>
+
+  <script>
+    var video = document.getElementById("background-video");
+
+    // Verifica se há um tempo de reprodução armazenado no localStorage
+    if (localStorage.getItem("videoTime")) {
+      video.currentTime = localStorage.getItem("videoTime");
+    }
+
+    // Salva o tempo atual de reprodução do vídeo no localStorage
+    function saveVideoTime() {
+      localStorage.setItem("videoTime", video.currentTime);
+    }
+
+    // Evento para salvar o tempo de reprodução ao mudar de página
+    window.addEventListener("beforeunload", saveVideoTime);
+
+    function validarLogin(event) {
+      event.preventDefault(); // Impede o comportamento padrão do formulário
+
+      // Obtém os valores do formulário
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Obtém os dados do localStorage
+      var storedUsername = localStorage.getItem('username');
+      var storedPassword = localStorage.getItem('password');
+
+      // Verifica se o usuário está no localStorage e se a senha está correta
+      if (username === storedUsername && password === storedPassword) {
+        // Redireciona para a página de menu principal se os dados estiverem corretos
+        window.location.href = 'menu_principal.html';
+      } else {
+        // Exibe a mensagem de erro se os dados estiverem incorretos
+        document.getElementById('error-message').style.display = 'block';
+        // Limpa os campos do formulário
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Principal</title>
+  <link rel="stylesheet" href="/Estilos/styles.css">
+</head>
+<body>
+  <!-- Vídeo de fundo -->
+  <div id="video-container">
+    <video id="background-video" autoplay loop>
+      <source src="/Videos/Intro.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Título -->
+  <h1>24 Hours Before The Dark</h1>
+
+  <!-- Informações do usuário -->
+  <div id="user-info">
+    <span id="username-info"></span>
+    <span>Progresso: XX%</span>
+  </div>
+  
+  <script>
+    var video = document.getElementById("background-video");
+  
+    // Verifica se há um tempo de reprodução armazenado no localStorage
+    if (localStorage.getItem("videoTime")) {
+      video.addEventListener("loadedmetadata", function() {
+        video.currentTime = localStorage.getItem("videoTime");
+      });
+    }
+  
+    // Recuperar o nome do usuário do localStorage
+    var username = localStorage.getItem("username");
+  
+    // Exibir o nome do usuário se existir no localStorage
+    if (username) {
+      var userInfo = document.getElementById("username-info");
+      userInfo.textContent = username;
+    }
+  
+    // Salva o tempo atual de reprodução do vídeo no localStorage
+    function saveVideoTime() {
+      localStorage.setItem("videoTime", video.currentTime);
+    }
+  
+    // Evento para salvar o tempo de reprodução ao mudar de página
+    window.addEventListener("beforeunload", saveVideoTime);
+  </script>
+
+  <!-- Opções do menu -->
+  <div id="menu-options">
+    <h2>Menu Principal</h2>
+    <ul>
+      <li><a href="/Cenas/cena0.html">Novo Jogo</a></li>
+      <li><a href="#" id="carregar-jogo">Carregar Jogo</a></li>
+      <li><a href="conquistas.html">Conquistas</a></li>
+      <li><a href="index.html">Log Out</a></li>
+    </ul>
+  </div>
+
+  <script>
+    var video = document.getElementById("background-video");
+
+    // Verifica se há um tempo de reprodução armazenado no localStorage
+    if (localStorage.getItem("videoTime")) {
+      video.addEventListener("loadedmetadata", function() {
+        video.currentTime = localStorage.getItem("videoTime");
+      });
+    }
+
+    // Salva o tempo atual de reprodução do vídeo no localStorage
+    function saveVideoTime() {
+      localStorage.setItem("videoTime", video.currentTime);
+    }
+
+    // Evento para salvar o tempo de reprodução ao mudar de página
+    window.addEventListener("beforeunload", saveVideoTime);
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Recuperar o botão "Carregar Jogo" pelo seu ID
+      const carregarJogoBtn = document.getElementById('carregar-jogo');
+  
+      // Adicionar evento de clique ao botão "Carregar Jogo"
+      carregarJogoBtn.addEventListener('click', function() {
+        const usuario = localStorage.getItem('username');
+  
+        if (usuario) {
+          const ultimaPagina = localStorage.getItem(`${usuario}_pagina_atual`);
+  
+          if (ultimaPagina) {
+            // Extrair o número da cena do nome da página
+            const numeroCena = ultimaPagina.match(/cena(\d+)_/i)[1];
+  
+            // Construir o caminho para a pasta da cena com base no número extraído
+            const caminhoPastaCena = `Cenas/Cena${numeroCena}/`;
+  
+            // Redirecionar para a última página visitada pelo usuário
+            window.location.href = caminhoPastaCena + ultimaPagina;
+          } else {
+            // Tratar caso não haja uma última página registrada
+            console.log('Nenhuma página encontrada para o usuário.');
+            // Pode redirecionar para uma página padrão ou fazer outra ação
+          }
+        } else {
+          console.log('Usuário não encontrado.');
+          // Tratar caso o usuário não seja encontrado
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Recuperar o elemento que exibe o progresso
+      const progressoElemento = document.getElementById('user-info').querySelector('span:last-child');
+  
+      // Recuperar o nome do usuário do localStorage
+      const usuario = localStorage.getItem('username');
+  
+      // Recuperar as variáveis de troféu do localStorage
+      const trofeuFuga = localStorage.getItem(`${usuario}_trofeu_fuga`);
+      const trofeuNormal = localStorage.getItem(`${usuario}_trofeu_normal`);
+  
+      // Calcula o progresso com base nas variáveis dos troféus
+      let progresso = 0;
+      if (trofeuFuga || trofeuNormal) {
+        progresso += 50;
+      }
+      if (trofeuFuga && trofeuNormal) {
+        progresso = 100;
+      }
+  
+      // Atualiza o texto exibindo o progresso
+      progressoElemento.textContent = `Progresso: ${progresso}%`;
+    });
+  </script>
+  
+</body>
+</html>

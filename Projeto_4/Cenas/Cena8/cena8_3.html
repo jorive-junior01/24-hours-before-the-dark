@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>24 Hours Before The Dark</title>
+  <script src="../../Scripts/salvamentos.js"></script>
+  <script src="../../Scripts/tempo_relogio.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: black;
+      background-size: 1024px 100%; /* Tamanho original na lateral e esticado na altura */
+      background-repeat: no-repeat;
+      background-position: left bottom; /* Posiciona a imagem na parte esquerda inferior */
+      overflow: hidden;
+    }
+
+    .conteudo {
+      position: fixed;
+      bottom: 0;
+      left: 1024px; /* Largura da imagem (1024px) + 5px de distância */
+      right: 5px; /* 5px de distância da borda direita da tela */
+      top: 0; /* Define a div do topo até o fim da tela */
+      padding: 20px;
+      background-color: rgb(255, 255, 255); /* Cor branca com 50% de transparência */
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    /* Estilos do botão */
+    .botao-continuar {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+      border: 2px solid black;
+      cursor: pointer;
+    }
+
+    .botao-continuar:hover {
+      background-color: blue;
+      color: white;
+    }
+    .relogio {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.8); /* Cor de fundo preta com 80% de transparência */
+      color: rgb(252, 0, 0);
+      font-family: 'Arial', sans-serif;
+      font-size: 24px;
+      border-radius:5px;
+    }
+  </style>
+</head>
+<body>
+  <script src="../../Scripts/destino.js"></script>
+  <div class="relogio">22:10</div>
+  <div class="conteudo">
+    <!-- Seu conteúdo aqui -->
+    <h1>Capitão</h1>
+    <p id="texto-digitando"></p>
+    
+    <!-- Botão "Continuar" -->
+    <a href="cena8_4.html" class="botao-continuar">Continuar</a>
+  </div>
+
+  <audio id="audio-digitacao" src="../../Musicas/digitacao.mp3"></audio>
+
+  <script>
+    passouMinutos(5);
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        window.location.href = '../../pause.html';
+      }
+    });
+  </script>
+  
+  <script>
+    const texto = "Perdemos ele! Como deixaram ele escapar?? Ele podia ser um espião da nossa aldeia inimiga!";
+    const tempoExibicaoLetra = 75; // Velocidade de digitação em milissegundos (25% mais rápida)
+    const tempoRedirecionamento = 5000;
+
+    let index = 0;
+    const textoDigitando = document.getElementById('texto-digitando');
+    const audioDigitacao = document.getElementById('audio-digitacao');
+
+    function exibirTexto() {
+      textoDigitando.textContent += texto[index];
+      audioDigitacao.play();
+      index++;
+      if (index < texto.length) {
+        setTimeout(exibirTexto, tempoExibicaoLetra);
+      } else {
+        audioDigitacao.pause();
+        setTimeout(() => {
+        window.location.href = 'cena8_4.html';
+        }, tempoRedirecionamento);
+      }
+    }
+
+    exibirTexto();
+  </script>
+  <script>
+    function atualizarImagemComHora() {
+      const horaSalva = parseInt(localStorage.getItem(`${localStorage.getItem('username')}_horaAtual`)) || 8;
+      const numeroImagem = horaSalva - 7;
+      const nomeImagem = `visao${numeroImagem}.png`;
+
+      const imagemMovivel = document.createElement('img');
+      imagemMovivel.src = `../../Imagens/${nomeImagem}`; // Corrigindo a interpolação da string
+      imagemMovivel.id = 'imagem-movivel';
+      document.body.appendChild(imagemMovivel);
+
+      document.addEventListener('mousemove', function(e) {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        const imagem = document.getElementById('imagem-movivel');
+        const imagemCenterX = imagem.offsetWidth / 2;
+        const imagemCenterY = imagem.offsetHeight / 2;
+
+        imagem.style.transform = `translate(${mouseX - imagemCenterX}px, ${mouseY - imagemCenterY}px)`;
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', atualizarImagemComHora);
+
+  </script>
+</body>
+</html>
+
+

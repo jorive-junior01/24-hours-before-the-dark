@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>24 Hours Before The Dark</title>
+  <script src="../../Scripts/salvamentos.js"></script>
+  <script src="../../Scripts/tempo_relogio.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-image: url('../../Imagens/Consultorio.jpg');
+      background-size: 1024px 100%; /* Tamanho original na lateral e esticado na altura */
+      background-repeat: no-repeat;
+      background-position: left bottom; /* Posiciona a imagem na parte esquerda inferior */
+      overflow: hidden;
+    }
+
+    .imagem-link {
+      transition: transform 0.3s;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+
+    .imagem-link:hover {
+      transform: scale(1.1);
+    }
+
+    .imagem1 {
+      top: 50px;
+      left: 580px;
+    }
+
+    .imagem2 {
+      bottom: 380px;
+      right: 1000px;
+    }
+    .relogio {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.8); /* Cor de fundo preta com 80% de transparência */
+      color: rgb(252, 0, 0);
+      font-family: 'Arial', sans-serif;
+      font-size: 24px;
+      border-radius:5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="relogio" id="relogio">22:05</div>
+  <a href="cena1_9.html"><img title="Falar com o médico" class="imagem-link imagem1" src="../../Imagens/balao_fala.png" alt="Falar com o médico"></a>
+  <a href="../Cena2/cena2_1.html"><img title="Sair" class="imagem-link imagem2" src="../../Imagens/seta_cima.png" alt="Sair"></a>
+  <script>
+    passouMinutos(5);
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        window.location.href = '../../pause.html';
+      }
+    });
+  </script>
+</body>
+</html>

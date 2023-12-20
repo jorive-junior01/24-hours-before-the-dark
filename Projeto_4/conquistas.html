@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Imagens Condicionalmente Exibidas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-image: url('/Imagens/Conquistas2.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
+      background-size: cover; /* Ajuste ao tamanho da tela */
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Estilos para as imagens */
+    .imagem {
+      display: none; /* Por padrão, as imagens estarão ocultas */
+      width: 500px;
+      height: 500px;
+      margin: 10px; /* Espaçamento entre as imagens */
+      position: absolute; /* Define a posição absoluta */
+    }
+
+    /* Estilos personalizados para cada imagem */
+    #trofeuFuga {
+      top: 150px; /* Posição em relação ao topo */
+      left: 50px; /* Posição em relação à esquerda */
+    }
+
+    #trofeuNormal {
+      top: 150px; /* Posição em relação ao topo */
+      left: 500px; /* Posição em relação à esquerda */
+    }
+    .botao-continuar {
+      position: absolute;
+      bottom: 5px; /* Distância de 5px do fundo */
+      right: 55px; /* Distância de 5px da direita */
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+      border: 2px solid black;
+      cursor: pointer;
+    }
+
+    .botao-continuar:hover {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+    <a href="menu_principal.html" class="botao-continuar">Voltar</a>
+  <!-- Imagem de fundo -->
+  <!-- Outros elementos HTML -->
+  <img id="trofeuFuga" class="imagem" src="/Imagens/trofeu_final_fuga.png" alt="Troféu de Fuga">
+  <img id="trofeuNormal" class="imagem" src="/Imagens/trofeu_final_normal.png" alt="Troféu Normal">
+
+  <script>
+    const usuario = localStorage.getItem('username');
+    const trofeuFuga = localStorage.getItem(`${usuario}_trofeu_fuga`);
+    const trofeuNormal = localStorage.getItem(`${usuario}_trofeu_normal`);
+
+    if (trofeuFuga) {
+      document.getElementById('trofeuFuga').style.display = 'block'; // Exibe a imagem do troféu de fuga
+    }
+
+    if (trofeuNormal) {
+      document.getElementById('trofeuNormal').style.display = 'block'; // Exibe a imagem do troféu normal
+    }
+  </script>
+</body>
+</html>

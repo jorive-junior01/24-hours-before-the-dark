@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Seus metadados, links de estilo, etc. -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const limparSalvamentoBtn = document.getElementById('limpar-salvamento');
+
+      limparSalvamentoBtn.addEventListener('click', function() {
+        const usuario = localStorage.getItem('username');
+
+        if (usuario) {
+          // Remove o salvamento associado ao nome de usuário
+          localStorage.removeItem(`${usuario}_pagina_atual`);
+        }
+
+        // Redireciona para a página menu_principal.html
+        window.location.href = 'menu_principal.html';
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- Seu conteúdo -->
+
+  <!-- Botão para limpar o salvamento e redirecionar para o menu principal -->
+  <button id="limpar-salvamento">Sair</button>
+</body>
+</html>
