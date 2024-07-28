@@ -1,1 +1,1 @@
-# meu-primeiro-commit
+# Esse é um jogo feito 100% com HTML, CSS e Javascript, está incompleto por ter faltado tempo para completá-lo, mas é muito interessante! Se trata de um storyteller de alguém que perderá completamente a visão em 24 horas (perdendo a visão gradativamente ao longo desse período)
